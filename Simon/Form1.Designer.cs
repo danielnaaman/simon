@@ -38,6 +38,9 @@ namespace Simon
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button_Instructions = new System.Windows.Forms.Button();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.timer4 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Red)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Green)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Yellow)).BeginInit();
@@ -49,49 +52,49 @@ namespace Simon
             // 
             this.pictureBox_Red.BackColor = System.Drawing.Color.Red;
             this.pictureBox_Red.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox_Red.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox_Red.Location = new System.Drawing.Point(15, 19);
             this.pictureBox_Red.Name = "pictureBox_Red";
             this.pictureBox_Red.Size = new System.Drawing.Size(110, 110);
             this.pictureBox_Red.TabIndex = 0;
             this.pictureBox_Red.TabStop = false;
-            this.pictureBox_Red.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // pictureBox_Green
             // 
             this.pictureBox_Green.BackColor = System.Drawing.Color.Green;
             this.pictureBox_Green.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox_Green.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox_Green.Location = new System.Drawing.Point(136, 19);
             this.pictureBox_Green.Name = "pictureBox_Green";
             this.pictureBox_Green.Size = new System.Drawing.Size(110, 110);
             this.pictureBox_Green.TabIndex = 1;
             this.pictureBox_Green.TabStop = false;
-            this.pictureBox_Green.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // pictureBox_Yellow
             // 
             this.pictureBox_Yellow.BackColor = System.Drawing.Color.Yellow;
             this.pictureBox_Yellow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox_Yellow.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox_Yellow.Location = new System.Drawing.Point(137, 140);
             this.pictureBox_Yellow.Name = "pictureBox_Yellow";
             this.pictureBox_Yellow.Size = new System.Drawing.Size(110, 110);
             this.pictureBox_Yellow.TabIndex = 2;
             this.pictureBox_Yellow.TabStop = false;
-            this.pictureBox_Yellow.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // pictureBox_Blue
             // 
             this.pictureBox_Blue.BackColor = System.Drawing.Color.Blue;
             this.pictureBox_Blue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox_Blue.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox_Blue.Location = new System.Drawing.Point(15, 140);
             this.pictureBox_Blue.Name = "pictureBox_Blue";
             this.pictureBox_Blue.Size = new System.Drawing.Size(110, 110);
             this.pictureBox_Blue.TabIndex = 3;
             this.pictureBox_Blue.TabStop = false;
-            this.pictureBox_Blue.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // button_Start
             // 
-            this.button_Start.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_Start.Cursor = System.Windows.Forms.Cursors.Default;
             this.button_Start.Location = new System.Drawing.Point(12, 281);
             this.button_Start.Name = "button_Start";
             this.button_Start.Size = new System.Drawing.Size(128, 28);
@@ -129,6 +132,21 @@ namespace Simon
             this.button_Instructions.UseVisualStyleBackColor = true;
             this.button_Instructions.Click += new System.EventHandler(this.button_Instructions_Click);
             // 
+            // timer2
+            // 
+            this.timer2.Interval = 400;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // timer3
+            // 
+            this.timer3.Interval = 400;
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
+            // timer4
+            // 
+            this.timer4.Interval = 400;
+            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -144,7 +162,7 @@ namespace Simon
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "Simon by Daniel Naaman and Yonatan Shoshani";
-            this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.Form1_HelpButtonClicked);
+            this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.Form1_HelpButton_Click);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Red)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Green)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Yellow)).EndInit();
@@ -164,6 +182,9 @@ namespace Simon
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button_Instructions;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Timer timer4;
     }
 }
 
