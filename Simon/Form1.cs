@@ -13,104 +13,72 @@ namespace Simon
 {
     public partial class Form1 : Form
     {
-        Random rnd = new Random();
-        int[] colorsArray = new int[10];
+        Random rnd = new Random(); // Utillizing Random Class
+        int[] colors = new int[10]; // An Array Being Filled With Random Values for Colors (1-4)
+        int count = 1; // Counting The Progress In-Game
 
+        // Builder
         public Form1()
         {
             InitializeComponent();
             FillRandoms();
         }
         
+        // Fills Random Values (1-4) In Array "colors" type integer.
         void FillRandoms()
         {
-            for (int i = 0; i < colorsArray.Length; i++)
+            for (int i = 0; i < colors.Length; i++)
             {
-                colorsArray[i] = rnd.Next(1, 5);
+                colors[i] = rnd.Next(1, 5);
             }
         }
 
-        public void Gadi()
+        // Starts The Game
+        void StartGame()
         {
-            for (int i = 0; i < colorsArray.Length; i++)
-            {
-                switch (colorsArray[i])
-                {
-                    case 1:
-                        timer1.Start();
-                        break;
-                    case 2:
-                        timer2.Start();
-                        break;
-                    case 3:
-                        timer3.Start();
-                        break;
-                    case 4:
-                        timer4.Start();
-                        break;
-                }
-            }
+            timer1.Start();
         }
 
-        // Timers
-
+        // Operation Tick For Timer #1
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (pictureBox_Red.BackColor == Color.Red)
+            switch (count)
             {
-                pictureBox_Red.BackColor = Color.Salmon;
+                case 1:
+                    pictureBox_Red.BackColor = Color.Salmon;
+                    break;
+                case 2:
+                    pictureBox_Red.BackColor = Color.Red;
+                    break;
+                case 3:
+                    pictureBox_Green.BackColor = Color.LightGreen;
+                    break;
+                case 4:
+                    pictureBox_Green.BackColor = Color.Green;
+                    break;
+                case 5:
+                    pictureBox_Blue.BackColor = Color.LightBlue;
+                    break;
+                case 6:
+                    pictureBox_Blue.BackColor = Color.Blue;
+                    break;
+                case 7:
+                    pictureBox_Yellow.BackColor = Color.LightYellow;
+                    break;
+                case 8:
+                    pictureBox_Yellow.BackColor = Color.Yellow;
+                    break;
             }
-            else
-            {
-                pictureBox_Red.BackColor = Color.Red;
-                timer1.Stop();
-            }
-        }
 
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            if (pictureBox_Green.BackColor == Color.Green)
-            {
-                pictureBox_Green.BackColor = Color.LightGreen;
-            }
-            else
-            {
-                pictureBox_Green.BackColor = Color.Green;
-                timer2.Stop();
-            }
-        }
+            count++;
 
-        private void timer3_Tick(object sender, EventArgs e)
-        {
-            if (pictureBox_Blue.BackColor == Color.Blue)
-            {
-                pictureBox_Blue.BackColor = Color.LightBlue;
-            }
-            else
-            {
-                pictureBox_Blue.BackColor = Color.Blue;
-                timer3.Stop();
-            }
+            if (count == 9)
+                count = 1;
         }
-
-        private void timer4_Tick(object sender, EventArgs e)
-        {
-            if (pictureBox_Yellow.BackColor == Color.Yellow)
-            {
-                pictureBox_Yellow.BackColor = Color.LightYellow;
-            }
-            else
-            {
-                pictureBox_Yellow.BackColor = Color.Yellow;
-                timer4.Stop();
-            }
-        }
-
-        // Buttons
 
         public void button_Start_Click(object sender, EventArgs e)
         {
-            Gadi();
+            StartGame();
         }
 
         private void button_Instructions_Click(object sender, EventArgs e)

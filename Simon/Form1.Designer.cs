@@ -38,9 +38,6 @@ namespace Simon
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button_Instructions = new System.Windows.Forms.Button();
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.timer4 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Red)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Green)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Yellow)).BeginInit();
@@ -105,7 +102,7 @@ namespace Simon
             // 
             // timer1
             // 
-            this.timer1.Interval = 400;
+            this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // groupBox1
@@ -131,21 +128,6 @@ namespace Simon
             this.button_Instructions.Text = "Instructions";
             this.button_Instructions.UseVisualStyleBackColor = true;
             this.button_Instructions.Click += new System.EventHandler(this.button_Instructions_Click);
-            // 
-            // timer2
-            // 
-            this.timer2.Interval = 400;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // timer3
-            // 
-            this.timer3.Interval = 400;
-            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
-            // 
-            // timer4
-            // 
-            this.timer4.Interval = 400;
-            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
             // 
             // Form1
             // 
@@ -182,9 +164,6 @@ namespace Simon
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button_Instructions;
-        private System.Windows.Forms.Timer timer2;
-        private System.Windows.Forms.Timer timer3;
-        private System.Windows.Forms.Timer timer4;
     }
 }
 
