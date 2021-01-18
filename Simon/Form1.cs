@@ -15,16 +15,13 @@ namespace Simon
     {
         Random rnd = new Random(); // Utillizing Random Class
         int[] colors = new int[10]; // An Array Being Filled With Random Values for Colors (1-4)
-        int count = 1; // Counting The Progress In-Game
-        int countAhmed = 0; // How many ahmeds?
-        bool gameStarted = false;
-        int x = 9; // x
+        int blink; // The blink
+        int placeInArray = 0; // Current place in array progress
 
         // Constructor
         public Form1()
         {
             InitializeComponent();
-            FillRandoms();
         }
         
         // Fills Random Values (1-4) In Array "colors" type integer.
@@ -34,86 +31,63 @@ namespace Simon
             {
                 colors[i] = rnd.Next(1, 5); // 1 - 4
             }
+
+            blink = colors[0];
         }
 
         // Starts The Game
         void StartGame()
         {
-            if (gameStarted)
-            {
-                button_Start.Text = "Stop / Reset";
-                timer1.Start();
-            }
-
-            else
-            {
-                button_Start.Text = "Start";
-                pictureBox_Red.BackColor = Color.Red;
-                pictureBox_Green.BackColor = Color.Green;
-                pictureBox_Yellow.BackColor = Color.Yellow;
-                pictureBox_Blue.BackColor = Color.Blue;
-            }
+            FillRandoms();
             timer1.Start();
         }
 
         // Operation Tick For Timer #1
         private void timer1_Tick(object sender, EventArgs e)
         {
-            switch (count)
+            if (placeInArray >= colors.Length)
+            {
+                timer1.Stop();
+                placeInArray = 0;
+            }
+
+            switch (blink)
             {
                 case 1:
                     pictureBox_Red.BackColor = Color.Salmon;
-                    count += 4;
+                    blink += 4;
                     break;
                 case 5:
                     pictureBox_Red.BackColor = Color.Red;
-                    count = colors[countAhmed];
+                    blink = colors[placeInArray];
                     break;
                 case 2:
                     pictureBox_Green.BackColor = Color.LightGreen;
-                    count += 4;
+                    blink += 4;
                     break;
                 case 6:
                     pictureBox_Green.BackColor = Color.Green;
-                    count = colors[countAhmed];
+                    blink = colors[placeInArray];
                     break;
                 case 3:
                     pictureBox_Blue.BackColor = Color.LightBlue;
-                    count += 4;
+                    blink += 4;
                     break;
                 case 7:
                     pictureBox_Blue.BackColor = Color.Blue;
-                    count = colors[countAhmed];
+                    blink = colors[placeInArray];
                     break;
                 case 4:
                     pictureBox_Yellow.BackColor = Color.LightYellow;
-                    count += 4;
+                    blink += 4;
                     break;
                 case 8:
                     pictureBox_Yellow.BackColor = Color.Yellow;
-                    count = colors[countAhmed];
+                    blink = colors[placeInArray];
                     break;
             }
-
-            if (countAhmed < 10)
-            {
-                countAhmed++;
-            }
-
-            else
-            {
-                timer1.Stop();
-            }
-        }
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            if (countAhmed < colors.Length - x)
-            {
-                timer1.Start();
-            }
-            countAhmed++;
-            x--;
+            
+            placeInArray++;
         }
 
         // Button (Click): Call StartGame()
