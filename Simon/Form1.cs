@@ -17,11 +17,13 @@ namespace Simon
         int[] colors = new int[10]; // An Array Being Filled With Random Values for Colors (1-4)
         int blink; // The blink
         int placeInArray = 0; // Current place in array progress
+        int runtime = 0; // Counts the clicks on each picturebox
 
         // Constructor
         public Form1()
         {
             InitializeComponent();
+            FillRandoms();
         }
         
         // Fills Random Values (1-4) In Array "colors" type integer.
@@ -29,7 +31,7 @@ namespace Simon
         {
             for (int i = 0; i < colors.Length; i++)
             {
-                colors[i] = rnd.Next(1, 5); // 1 - 4
+                colors[i] = rnd.Next(1, 5); // 0 - 5
             }
 
             blink = colors[0];
@@ -38,17 +40,17 @@ namespace Simon
         // Starts The Game
         void StartGame()
         {
-            FillRandoms();
             timer1.Start();
         }
 
         // Operation Tick For Timer #1
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (placeInArray >= colors.Length)
+            if (placeInArray >= runtime && blink >= 5)
             {
                 timer1.Stop();
                 placeInArray = 0;
+                blink = colors[0];
             }
 
             switch (blink)
@@ -59,6 +61,7 @@ namespace Simon
                     break;
                 case 5:
                     pictureBox_Red.BackColor = Color.Red;
+                    placeInArray++;
                     blink = colors[placeInArray];
                     break;
                 case 2:
@@ -67,6 +70,7 @@ namespace Simon
                     break;
                 case 6:
                     pictureBox_Green.BackColor = Color.Green;
+                    placeInArray++;
                     blink = colors[placeInArray];
                     break;
                 case 3:
@@ -75,6 +79,7 @@ namespace Simon
                     break;
                 case 7:
                     pictureBox_Blue.BackColor = Color.Blue;
+                    placeInArray++;
                     blink = colors[placeInArray];
                     break;
                 case 4:
@@ -83,11 +88,10 @@ namespace Simon
                     break;
                 case 8:
                     pictureBox_Yellow.BackColor = Color.Yellow;
+                    placeInArray++;
                     blink = colors[placeInArray];
                     break;
             }
-            
-            placeInArray++;
         }
 
         // Button (Click): Call StartGame()
@@ -108,6 +112,15 @@ namespace Simon
         {
             Form2 f2 = new Form2();
             f2.Show();
+        }
+
+        private void pictureBox_Green_Click(object sender, EventArgs e)
+        {
+            if (runtime < colors.Length)
+            {
+                runtime++;
+                timer1.Start();
+            }
         }
     }
 }

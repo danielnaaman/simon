@@ -38,6 +38,7 @@ namespace Simon
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button_Instructions = new System.Windows.Forms.Button();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Red)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Green)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Yellow)).BeginInit();
@@ -55,6 +56,7 @@ namespace Simon
             this.pictureBox_Red.Size = new System.Drawing.Size(110, 110);
             this.pictureBox_Red.TabIndex = 0;
             this.pictureBox_Red.TabStop = false;
+            this.pictureBox_Red.Click += new System.EventHandler(this.pictureBox_Green_Click);
             // 
             // pictureBox_Green
             // 
@@ -66,6 +68,7 @@ namespace Simon
             this.pictureBox_Green.Size = new System.Drawing.Size(110, 110);
             this.pictureBox_Green.TabIndex = 1;
             this.pictureBox_Green.TabStop = false;
+            this.pictureBox_Green.Click += new System.EventHandler(this.pictureBox_Green_Click);
             // 
             // pictureBox_Yellow
             // 
@@ -77,6 +80,7 @@ namespace Simon
             this.pictureBox_Yellow.Size = new System.Drawing.Size(110, 110);
             this.pictureBox_Yellow.TabIndex = 2;
             this.pictureBox_Yellow.TabStop = false;
+            this.pictureBox_Yellow.Click += new System.EventHandler(this.pictureBox_Green_Click);
             // 
             // pictureBox_Blue
             // 
@@ -88,6 +92,7 @@ namespace Simon
             this.pictureBox_Blue.Size = new System.Drawing.Size(110, 110);
             this.pictureBox_Blue.TabIndex = 3;
             this.pictureBox_Blue.TabStop = false;
+            this.pictureBox_Blue.Click += new System.EventHandler(this.pictureBox_Green_Click);
             // 
             // button_Start
             // 
@@ -164,6 +169,7 @@ namespace Simon
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button_Instructions;
+        private System.Windows.Forms.Timer timer2;
     }
 }
 
