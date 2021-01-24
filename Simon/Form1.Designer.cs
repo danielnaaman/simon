@@ -56,7 +56,7 @@ namespace Simon
             this.pictureBox_Red.Size = new System.Drawing.Size(110, 110);
             this.pictureBox_Red.TabIndex = 0;
             this.pictureBox_Red.TabStop = false;
-            this.pictureBox_Red.Click += new System.EventHandler(this.pictureBox_Green_Click);
+            this.pictureBox_Red.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // pictureBox_Green
             // 
@@ -68,7 +68,7 @@ namespace Simon
             this.pictureBox_Green.Size = new System.Drawing.Size(110, 110);
             this.pictureBox_Green.TabIndex = 1;
             this.pictureBox_Green.TabStop = false;
-            this.pictureBox_Green.Click += new System.EventHandler(this.pictureBox_Green_Click);
+            this.pictureBox_Green.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // pictureBox_Yellow
             // 
@@ -80,7 +80,7 @@ namespace Simon
             this.pictureBox_Yellow.Size = new System.Drawing.Size(110, 110);
             this.pictureBox_Yellow.TabIndex = 2;
             this.pictureBox_Yellow.TabStop = false;
-            this.pictureBox_Yellow.Click += new System.EventHandler(this.pictureBox_Green_Click);
+            this.pictureBox_Yellow.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // pictureBox_Blue
             // 
@@ -92,7 +92,7 @@ namespace Simon
             this.pictureBox_Blue.Size = new System.Drawing.Size(110, 110);
             this.pictureBox_Blue.TabIndex = 3;
             this.pictureBox_Blue.TabStop = false;
-            this.pictureBox_Blue.Click += new System.EventHandler(this.pictureBox_Green_Click);
+            this.pictureBox_Blue.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // button_Start
             // 

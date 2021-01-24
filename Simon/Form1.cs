@@ -13,8 +13,7 @@ namespace Simon
 {
     public partial class Form1 : Form
     {
-        Random rnd = new Random(); // Utillizing Random Class
-        int[] colors = new int[10]; // An Array Being Filled With Random Values for Colors (1-4)
+        int[] colors = new int[3]; // An Array Being Filled With Random Values for Colors (1-4)
         int blink; // The blink
         int placeInArray = 0; // Current place in array progress
         int runtime = 0; // Counts the clicks on each picturebox
@@ -25,79 +24,80 @@ namespace Simon
             InitializeComponent();
             FillRandoms();
         }
-        
+
         // Fills Random Values (1-4) In Array "colors" type integer.
         void FillRandoms()
         {
-            for (int i = 0; i < colors.Length; i++)
-            {
-                colors[i] = rnd.Next(1, 5); // 0 - 5
-            }
+            Random rnd = new Random();
 
+            //for (int i = 0; i < colors.Length; i++)
+            //{
+            //    colors[i] = rnd.Next(1, 5); // 1 - 4
+            //}
+
+            colors[0] = 1;
+            colors[1] = 2;
+            colors[2] = 3;
             blink = colors[0];
         }
 
-        // Starts The Game
-        void StartGame()
-        {
-            timer1.Start();
-        }
-
-        // Operation Tick For Timer #1
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (placeInArray >= runtime && blink >= 5)
+            // Blink according to [] in array "colors" 
+
+            if (placeInArray >= runtime)
             {
                 timer1.Stop();
                 placeInArray = 0;
                 blink = colors[0];
+                runtime++;
             }
 
-            switch (blink)
+            else
             {
-                case 1:
-                    pictureBox_Red.BackColor = Color.Salmon;
-                    blink += 4;
-                    break;
-                case 5:
-                    pictureBox_Red.BackColor = Color.Red;
+                switch (blink)
+                {
+                    case 1:
+                        pictureBox_Red.BackColor = Color.Salmon;
+                        break;
+                    case 5:
+                        pictureBox_Red.BackColor = Color.Red;
+                        break;
+                    case 2:
+                        pictureBox_Green.BackColor = Color.LightGreen;
+                        break;
+                    case 6:
+                        pictureBox_Green.BackColor = Color.Green;
+                        break;
+                    case 3:
+                        pictureBox_Blue.BackColor = Color.LightBlue;
+                        break;
+                    case 7:
+                        pictureBox_Blue.BackColor = Color.Blue;
+                        break;
+                    case 4:
+                        pictureBox_Yellow.BackColor = Color.LightYellow;
+                        break;
+                    case 8:
+                        pictureBox_Yellow.BackColor = Color.Yellow;
+                        break;
+                }
+                if (blink > 4)
+                {
                     placeInArray++;
-                    blink = colors[placeInArray];
-                    break;
-                case 2:
-                    pictureBox_Green.BackColor = Color.LightGreen;
+                    if (placeInArray < colors.Length)
+                        blink = colors[placeInArray];
+                }
+                else
                     blink += 4;
-                    break;
-                case 6:
-                    pictureBox_Green.BackColor = Color.Green;
-                    placeInArray++;
-                    blink = colors[placeInArray];
-                    break;
-                case 3:
-                    pictureBox_Blue.BackColor = Color.LightBlue;
-                    blink += 4;
-                    break;
-                case 7:
-                    pictureBox_Blue.BackColor = Color.Blue;
-                    placeInArray++;
-                    blink = colors[placeInArray];
-                    break;
-                case 4:
-                    pictureBox_Yellow.BackColor = Color.LightYellow;
-                    blink += 4;
-                    break;
-                case 8:
-                    pictureBox_Yellow.BackColor = Color.Yellow;
-                    placeInArray++;
-                    blink = colors[placeInArray];
-                    break;
             }
         }
 
         // Button (Click): Call StartGame()
         public void button_Start_Click(object sender, EventArgs e)
         {
-            StartGame();
+            runtime = 1;
+            timer1.Start();
         }
 
         // Button (Click): Open Form #2
@@ -114,13 +114,17 @@ namespace Simon
             f2.Show();
         }
 
-        private void pictureBox_Green_Click(object sender, EventArgs e)
+        private void pictureBox_Click(object sender, EventArgs e)
         {
-            if (runtime < colors.Length)
-            {
-                runtime++;
-                timer1.Start();
-            }
+            timer1.Start();
+            // if game started
+
+
+            //if (runtime < colors.Length)
+            //{
+            //    runtime++;
+            //    timer1.Start();
+            //}
         }
     }
 }

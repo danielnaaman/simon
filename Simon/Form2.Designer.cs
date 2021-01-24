@@ -62,7 +62,7 @@ namespace Simon
             // button_Instructions
             // 
             this.button_Instructions.Cursor = System.Windows.Forms.Cursors.Help;
-            this.button_Instructions.Location = new System.Drawing.Point(168, 391);
+            this.button_Instructions.Location = new System.Drawing.Point(184, 397);
             this.button_Instructions.Name = "button_Instructions";
             this.button_Instructions.Size = new System.Drawing.Size(128, 28);
             this.button_Instructions.TabIndex = 9;
@@ -75,7 +75,7 @@ namespace Simon
             this.groupBox1.Controls.Add(this.pictureBox_Green);
             this.groupBox1.Controls.Add(this.pictureBox_Yellow);
             this.groupBox1.Controls.Add(this.pictureBox_Blue);
-            this.groupBox1.Location = new System.Drawing.Point(37, 119);
+            this.groupBox1.Location = new System.Drawing.Point(53, 125);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(261, 262);
             this.groupBox1.TabIndex = 8;
@@ -129,7 +129,7 @@ namespace Simon
             // button_Start
             // 
             this.button_Start.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button_Start.Location = new System.Drawing.Point(37, 391);
+            this.button_Start.Location = new System.Drawing.Point(53, 397);
             this.button_Start.Name = "button_Start";
             this.button_Start.Size = new System.Drawing.Size(128, 28);
             this.button_Start.TabIndex = 7;
@@ -140,7 +140,7 @@ namespace Simon
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 26);
+            this.label1.Location = new System.Drawing.Point(26, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(314, 55);
             this.label1.TabIndex = 10;
@@ -150,7 +150,7 @@ namespace Simon
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(24, 81);
+            this.label2.Location = new System.Drawing.Point(30, 80);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(305, 20);
             this.label2.TabIndex = 11;
