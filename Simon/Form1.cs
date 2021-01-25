@@ -13,19 +13,19 @@ namespace Simon
 {
     public partial class Form1 : Form
     {
-        int[] colors = new int[3]; // An Array Being Filled With Random Values for Colors (1-4)
-        int blink; // The blink
-        int placeInArray = 0; // Current place in array progress
-        int runtime = 0; // Counts the clicks on each picturebox
+        private int[] colors = new int[3];
+        private int blink;
+        private int placeInArray = 0;
+        private int runtime = 0;
+        private int click = 0;
+        private PictureBox pictureBox;
 
-        // Constructor
         public Form1()
         {
             InitializeComponent();
             FillRandoms();
         }
 
-        // Fills Random Values (1-4) In Array "colors" type integer.
         void FillRandoms()
         {
             Random rnd = new Random();
@@ -43,8 +43,6 @@ namespace Simon
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            // Blink according to [] in array "colors" 
-
             if (placeInArray >= runtime)
             {
                 timer1.Stop();
@@ -93,21 +91,18 @@ namespace Simon
             }
         }
 
-        // Button (Click): Call StartGame()
         public void button_Start_Click(object sender, EventArgs e)
         {
             runtime = 1;
             timer1.Start();
         }
 
-        // Button (Click): Open Form #2
         private void button_Instructions_Click(object sender, EventArgs e)
         {
             Form2 f2 = new Form2();
             f2.Show();
         }
 
-        // HelpButton (Click): Open Form #2
         private void Form1_HelpButton_Click(Object sender, CancelEventArgs e)
         {
             Form2 f2 = new Form2();
@@ -116,15 +111,58 @@ namespace Simon
 
         private void pictureBox_Click(object sender, EventArgs e)
         {
-            timer1.Start();
-            // if game started
+            pictureBox = sender as PictureBox;
 
+            timer2.Start();
 
             //if (runtime < colors.Length)
             //{
             //    runtime++;
             //    timer1.Start();
             //}
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            int picture = ConvertToInteger(pictureBox);
+
+            if (picture == colors[click])
+            {
+                click++;
+            }
+
+            else
+            {
+                timer2.Stop();
+                timer1.Start();
+                MessageBox.Show("You are fat and you suck"); // Change comment ^backlog
+                click = 0;
+            }
+        }
+
+    private int ConvertToInteger(PictureBox pictureBox)
+        {
+            // Converts a string to integer following the scheme on timer1_Tick switch()
+
+            if (pictureBox.Name.EndsWith("Red"))
+            {
+                return 1;
+            }
+
+            else if (pictureBox.Name.EndsWith("Yellow"))
+            {
+                return 4;
+            }
+
+            else if (pictureBox.Name.EndsWith("Green"))
+            {
+                return 2;
+            }
+
+            else // Blue
+            {
+                return 3;
+            }
         }
     }
 }
